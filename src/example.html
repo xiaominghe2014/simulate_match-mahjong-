@@ -44,34 +44,55 @@
 
         }
     </style>
-    <script type="text/javascript" src = Test.js></script>>
+    <script type="text/javascript" src = Test.js></script>
 </head>
 <body>
-<table border="1" id="table">
-</table>
-</body>
 <ul>
 </ul>
 <button style="display:block;margin: 0 auto" onclick="runGame()">确定</button>
+<table border cellspacing=0 id="gameMsg">
+    <caption valign=top>当前比赛信息实况</caption>
+    <tr>
+        <th colspan="2">当局比赛信息</th>
+        <th colspan="4">基本信息</th>
+        <th colspan="4">高分局情况</th>
+    </tr>
+    <tr>
+        <th>当前轮次</th>
+        <th>当前比赛信息</th>
+
+        <th>通道信息</th>
+        <th>通道滞留玩家</th>
+        <th>已淘汰玩家</th>
+        <th>当前玩家名次</th>
+
+        <th>高分局比赛详情</th>
+        <th>高分局淘汰玩家</th>
+        <th>高分局通道信息</th>
+        <th>高分局玩家名次</th>
+    </tr>
+</table>
+</body>
+
+
 <script>
     var oUl=document.getElementsByTagName('ul')[0];
     var arr=[
         '报名人数',               //0
         '初始分数',               //1
         '麻将基础分',             //2
-        '流局',                  //3
-        '糊牌大小比例8:1',        //4
-        '糊牌大小比例16:2',       //5
-        '糊牌大小比例32:4',       //6
-        '糊牌大小比例64:8',       //7
-        '糊牌大小比例128:16',     //8
+//        '流局',                  //3
+//        '糊牌大小比例8:1',        //4
+//        '糊牌大小比例16:2',       //5
+//        '糊牌大小比例32:4',       //6
+//        '糊牌大小比例64:8',       //7
+//        '糊牌大小比例128:16',     //8
         '淘汰分',                //9
-        '携带分比例',             //10
-        '晋级人数',              //11
-        '翻倍',                 //12
-        '基础分加倍',            //13
-        '牌局最少时间(秒)',
-        '牌局最多时间(秒)'
+//        '携带分比例',             //10
+//        '晋级人数',              //11
+//        '翻倍',                 //12
+//        '基础分加倍',            //13
+        '有庄闲家'
     ];
     for(var i=0;i<arr.length;i++){
         var oLi=document.createElement('li');
@@ -94,19 +115,18 @@
         var playerNum = document.getElementById(0).value;
         var baseScore = document.getElementById(1).value;
         var base = document.getElementById(2).value;
-        var minScore = document.getElementById(9).value;
+        var minScore = document.getElementById(3).value;
 
         //设置概率
-        var cPass = document.getElementById(3).value;
-        var cBase = document.getElementById(4).value;
-        var cOne = document.getElementById(5).value;
-        var cTwo = document.getElementById(6).value;
-        var cThree = document.getElementById(7).value;
-        var cFour = document.getElementById(8).value;
+//        var cPass = document.getElementById(3).value;
+//        var cBase = document.getElementById(4).value;
+//        var cOne = document.getElementById(5).value;
+//        var cTwo = document.getElementById(6).value;
+//        var cThree = document.getElementById(7).value;
+//        var cFour = document.getElementById(8).value;
 
-        var minS = document.getElementById(14).value;
-        var maxS = document.getElementById(15).value;
-        main(playerNum,baseScore,base,minScore,{cPass:cPass,cBase:cBase,cOne:cOne,cTwo:cTwo,cThree:cThree,cFour:cFour},minS,maxS);
+        var is = document.getElementById(4).value;
+        main(playerNum,baseScore,base,minScore,{},is);
     }
 </script>
 </html>
